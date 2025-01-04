@@ -9,12 +9,18 @@ public class PlayerController : MonoBehaviour
     private float moveV;
     private Rigidbody rb;
 
+    private Vector2 lookDirection = new Vector2(1, 0);
+
+    private PlayerAnimation playerAnim;
+
     [SerializeField]
     private float moveSpeed;
     // Start is called before the first frame update
     void Start()
     {
         TryGetComponent(out rb);
+
+        TryGetComponent(out playerAnim);
     }
 
     // Update is called once per frame
@@ -22,6 +28,11 @@ public class PlayerController : MonoBehaviour
     {
         moveH = Input.GetAxis("Horizontal");
         moveV = Input.GetAxis("Vertical");
+
+        if(playerAnim)
+        {
+            SyncMoveAnimation();
+        }
     }
 
     private void FixedUpdate()
@@ -40,6 +51,23 @@ public class PlayerController : MonoBehaviour
         if(moveForward != Vector3.zero )
         {
             transform.rotation = Quaternion.LookRotation(moveForward);
+        }
+    }
+
+    private void SyncMoveAnimation()
+    {
+        if(!Mathf.Approximately(moveH,0.0f)|| !Mathf.Approximately(moveV,0.0f))
+        {
+            lookDirection.Set(moveV, moveH);
+            lookDirection.Normalize();
+            playerAnim.ChangeAnimationFromFloat(PlayerAnimationState.Speed,lookDirection.sqrMagnitude);
+
+            Debug.Log("à⁄ìÆÉAÉjÉÅçƒê∂:" + lookDirection.sqrMagnitude);
+        }
+        else
+        {
+            playerAnim.ChangeAnimationFromFloat(PlayerAnimationState.Speed, 0);
+            Debug.Log("í‚é~");
         }
     }
 }
