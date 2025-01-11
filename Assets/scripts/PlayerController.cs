@@ -62,12 +62,12 @@ public class PlayerController : MonoBehaviour
             lookDirection.Normalize();
             playerAnim.ChangeAnimationFromFloat(PlayerAnimationState.Speed,lookDirection.sqrMagnitude);
 
-            Debug.Log("移動アニメ再生:" + lookDirection.sqrMagnitude);
+            //Debug.Log("移動アニメ再生:" + lookDirection.sqrMagnitude);
         }
         else
         {
             playerAnim.ChangeAnimationFromFloat(PlayerAnimationState.Speed, 0);
-            Debug.Log("停止");
+            //Debug.Log("停止");
         }
     }
 }

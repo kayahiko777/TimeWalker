@@ -7,6 +7,12 @@ public class MagicController : MonoBehaviour
     public GameObject magicPrefab;
     public Transform magicSpawnPoint;
     public float magicSpeed = 10f;
+
+    public GameObject hitEffect;
+    [SerializeField]
+    private int attackPower;
+
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +42,11 @@ public class MagicController : MonoBehaviour
             }
             Physics.IgnoreCollision(magic.GetComponent<Collider>(), GetComponent<Collider>());
             Destroy(magic, 5f);
+
+            MagicCollision magicCollision = magic.AddComponent<MagicCollision>();
+            magicCollision.attackPower = attackPower;
+            magicCollision.hitEffect = hitEffect;
         }
     }
+    
 }
