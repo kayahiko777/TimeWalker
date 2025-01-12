@@ -37,10 +37,10 @@ public class MagicController : MonoBehaviour
             Rigidbody rb = magic.GetComponent<Rigidbody>();
             if (rb != null)
             {
-                rb.velocity = magicSpawnPoint.forward * magicSpeed;
+               // rb.velocity = magicSpawnPoint.forward * magicSpeed;
                 rb.isKinematic = false;
             }
-            Physics.IgnoreCollision(magic.GetComponent<Collider>(), GetComponent<Collider>());
+           // Physics.IgnoreCollision(magic.GetComponentInChildren<Collider>(), GetComponent<Collider>());
             Destroy(magic, 5f);
 
             MagicCollision magicCollision = magic.AddComponent<MagicCollision>();

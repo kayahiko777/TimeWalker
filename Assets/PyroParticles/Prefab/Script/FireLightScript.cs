@@ -77,12 +77,12 @@ namespace DigitalRuby.PyroParticles
                 float z = Mathf.PerlinNoise(seed + 4 + Time.time * 2, seed + 5 + Time.time * 2) - 0.5f;
                 firePointLight.gameObject.transform.localPosition = Vector3.up + new Vector3(x, y, z);
             }
-            else if (fireBaseScript.Stopping)
+            else if (fireBaseScript != null && fireBaseScript.Stopping)
             {
                 // fade out
                 firePointLight.intensity = Mathf.Lerp(firePointLight.intensity, 0.0f, fireBaseScript.StopPercent);
             }
-            else if (fireBaseScript.Starting)
+            else if (fireBaseScript != null && fireBaseScript.Starting)
             {
                 // fade in
                 firePointLight.intensity = Mathf.Lerp(0.0f, lightIntensity, fireBaseScript.StartPercent);
