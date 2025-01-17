@@ -1,6 +1,9 @@
+using UnityEngine;
+
 [System.Serializable]
 public class SkillData 
 {
+    public Sprite icon;
     public int skillId;
     public string skillName;
     public int attackPower;
