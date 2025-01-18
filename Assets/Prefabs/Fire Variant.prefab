@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 112
       objectReference: {fileID: 0}
+    - target: {fileID: 13546184, guid: 8f18e1d8c46c51f429429815455062fc, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5453920, guid: 8f18e1d8c46c51f429429815455062fc, type: 3}
     - {fileID: 11437010, guid: 8f18e1d8c46c51f429429815455062fc, type: 3}
@@ -72,6 +76,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 121802, guid: 8f18e1d8c46c51f429429815455062fc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1337730507328478629}
+    - targetCorrespondingSourceObject: {fileID: 121802, guid: 8f18e1d8c46c51f429429815455062fc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8860268061093798752}
   m_SourcePrefab: {fileID: 100100000, guid: 8f18e1d8c46c51f429429815455062fc, type: 3}
 --- !u!1 &4845589324372909193 stripped
 GameObject:
@@ -151,6 +158,27 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   ProjectileDestroyParticleSystemsOnCollision: []
+--- !u!135 &8860268061093798752
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4845589324372909193}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4845589324372916337 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 130866, guid: 8f18e1d8c46c51f429429815455062fc, type: 3}

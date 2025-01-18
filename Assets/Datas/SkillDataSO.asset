@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillDataList:
   - icon: {fileID: 21300000, guid: 335e61f37acb45844ab5ba1ce5043f0e, type: 3}
-    skillId: 1
+    skillId: 0
     skillName: Fireball
     attackPower: 1
     shieldPower: 0
@@ -23,7 +23,7 @@ MonoBehaviour:
     amount1: 3
     amount2: 1.5
   - icon: {fileID: 21300000, guid: b692cd971b3d12e4a849330a7913aca4, type: 3}
-    skillId: 2
+    skillId: 1
     skillName: FrostBlast
     attackPower: 50
     shieldPower: 0

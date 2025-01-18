@@ -37,7 +37,7 @@ public class MagicController : MonoBehaviour
             Rigidbody rb = magic.GetComponent<Rigidbody>();
             if (rb != null)
             {
-               // rb.velocity = magicSpawnPoint.forward * magicSpeed;
+                rb.velocity = magicSpawnPoint.forward * magicSpeed;
                 rb.isKinematic = false;
             }
            // Physics.IgnoreCollision(magic.GetComponentInChildren<Collider>(), GetComponent<Collider>());

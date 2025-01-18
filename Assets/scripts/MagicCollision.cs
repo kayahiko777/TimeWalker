@@ -10,6 +10,7 @@ public class MagicCollision : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         // “G‚ÉÕ“Ë‚µ‚½ê‡
+        Debug.Log(collision);
         if (collision.gameObject.CompareTag("Enemy"))
         {
             // “G‚Éƒ_ƒ[ƒW‚ğ—^‚¦‚é

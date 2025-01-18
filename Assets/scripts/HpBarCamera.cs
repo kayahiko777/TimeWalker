@@ -14,6 +14,6 @@ public class HpBarCamera : MonoBehaviour
     /// </summary>
     private void LookHpBarToCamera()
     {
-        transform.rotation = Camera.main.transform.rotation;
+        transform.localRotation = Camera.main.transform.rotation;
     }
 }
