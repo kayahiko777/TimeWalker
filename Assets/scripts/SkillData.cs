@@ -12,4 +12,5 @@ public class SkillData
     public int cost;
     public float amount1;
     public float amount2;
+    public GameObject skillPrefab;
 }

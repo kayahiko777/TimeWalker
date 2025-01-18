@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 public class MagicSwicher : MonoBehaviour
 {
-    public SkillData[] magicSkills;
+    [SerializeField]
+    private SkillDataSO skillDataSO;
+    //public SkillData[] magicSkills;
     public Text magicNameText;
     public Image magicIconImage;
 
@@ -30,14 +32,14 @@ public class MagicSwicher : MonoBehaviour
 
     void SwitchMagic(int direction)
     {
-        currentMagicIndex = (currentMagicIndex + direction + magicSkills.Length)% magicSkills.Length;
+        currentMagicIndex = (currentMagicIndex + direction + skillDataSO.skillDataList.Count)% skillDataSO.skillDataList.Count;
 
         UpdateMagicUI();
     }
 
     void UpdateMagicUI()
     {
-        SkillData currentMagic = magicSkills[currentMagicIndex];
+        SkillData currentMagic = skillDataSO.skillDataList[currentMagicIndex];
 
         magicNameText.text = currentMagic.skillName;
         if (magicIconImage != null)
@@ -45,5 +47,11 @@ public class MagicSwicher : MonoBehaviour
             magicIconImage.sprite = currentMagic.icon;
         }
         Debug.Log("Current Magic: " + currentMagic.skillName);
+    }
+
+    public GameObject GetSkillPrefab()
+    {
+        SkillData currentMagic = skillDataSO.skillDataList[currentMagicIndex];
+        return currentMagic.skillPrefab;
     }
 }

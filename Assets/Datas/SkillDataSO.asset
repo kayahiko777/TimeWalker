@@ -22,6 +22,7 @@ MonoBehaviour:
     cost: 20
     amount1: 3
     amount2: 1.5
+    skillPrefab: {fileID: 4845589324372909193, guid: ff626dbe702235c46b55337275c3106e, type: 3}
   - icon: {fileID: 21300000, guid: b692cd971b3d12e4a849330a7913aca4, type: 3}
     skillId: 1
     skillName: FrostBlast
@@ -31,3 +32,4 @@ MonoBehaviour:
     cost: 20
     amount1: 3
     amount2: 5
+    skillPrefab: {fileID: 9081363104629477667, guid: 113647729d783674794dc15a65b43b4a, type: 3}
