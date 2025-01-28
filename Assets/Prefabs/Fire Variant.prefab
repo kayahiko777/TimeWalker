@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fire Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 121802, guid: 8f18e1d8c46c51f429429815455062fc, type: 3}
+      propertyPath: m_TagString
+      value: Magic
+      objectReference: {fileID: 0}
     - target: {fileID: 485016, guid: 8f18e1d8c46c51f429429815455062fc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

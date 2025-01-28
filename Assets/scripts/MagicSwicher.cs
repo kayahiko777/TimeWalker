@@ -54,4 +54,15 @@ public class MagicSwicher : MonoBehaviour
         SkillData currentMagic = skillDataSO.skillDataList[currentMagicIndex];
         return currentMagic.skillPrefab;
     }
+
+    public float GetMoveSpeed()
+    {
+        SkillData currentMagic = skillDataSO.skillDataList[currentMagicIndex];
+        return currentMagic.moveSpeed;
+    }
+
+    public int GetAttackPower()
+    {
+        return skillDataSO.skillDataList[currentMagicIndex].attackPower;
+    }
 }
