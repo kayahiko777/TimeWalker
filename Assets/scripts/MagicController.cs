@@ -6,14 +6,17 @@ public class MagicController : MonoBehaviour
 {
     [SerializeField]
     private MagicSwicher magicSwicher;
-    public GameObject magicPrefab;
+   // public GameObject magicPrefab;
     public Transform magicSpawnPoint;
-    public float magicSpeed = 10f;
+   // public float magicSpeed = 10f;
 
-    public GameObject hitEffect;
-    [SerializeField]
-    private int attackPower;
+   // public GameObject hitEffect;
+    //[SerializeField]
+    //private int attackPower;
 
+
+  
+   
    
     // Start is called before the first frame update
     void Start()
@@ -32,23 +35,33 @@ public class MagicController : MonoBehaviour
 
     void CastMagic()
     {
-        if (magicPrefab != null && magicSpawnPoint != null)
+        if ( magicSpawnPoint != null)
         {
             //GameObject magic = Instantiate(magicPrefab, magicSpawnPoint.position, magicSpawnPoint.rotation);
             GameObject skillPrefab = magicSwicher.GetSkillPrefab();
+            if (skillPrefab == null) { return;  }
             GameObject magic = Instantiate(skillPrefab, magicSpawnPoint.position, magicSpawnPoint.rotation);
             Rigidbody rb = magic.GetComponent<Rigidbody>();
             if (rb != null)
             {
+                float magicSpeed = magicSwicher.GetMoveSpeed();
                 rb.velocity = magicSpawnPoint.forward * magicSpeed;
                 rb.isKinematic = false;
             }
            // Physics.IgnoreCollision(magic.GetComponentInChildren<Collider>(), GetComponent<Collider>());
             Destroy(magic, 5f);
 
-            MagicCollision magicCollision = magic.AddComponent<MagicCollision>();
-            magicCollision.attackPower = attackPower;
-            magicCollision.hitEffect = hitEffect;
+            MagicCollision magicCollision = magic.GetComponent<MagicCollision>();
+            int attackPower = magicSwicher.GetAttackPower();
+            magicCollision.SetUpAttackPower(attackPower);
+
+            GameObject hitEffect = magicSwicher.GetHitEffect();
+            if (hitEffect != null)
+            {
+                magicCollision.SetUpHitEffect(hitEffect);
+            }
+           // magicCollision.attackPower = attackPower;
+           // magicCollision.hitEffect = hitEffect;
         }
     }
     

@@ -16,20 +16,24 @@ MonoBehaviour:
   - icon: {fileID: 21300000, guid: 335e61f37acb45844ab5ba1ce5043f0e, type: 3}
     skillId: 0
     skillName: Fireball
-    attackPower: 1
+    attackPower: 3
     shieldPower: 0
+    moveSpeed: 3
     coolTime: 5
     cost: 20
     amount1: 3
     amount2: 1.5
     skillPrefab: {fileID: 4845589324372909193, guid: ff626dbe702235c46b55337275c3106e, type: 3}
+    hitEffect: {fileID: 0}
   - icon: {fileID: 21300000, guid: b692cd971b3d12e4a849330a7913aca4, type: 3}
     skillId: 1
     skillName: FrostBlast
     attackPower: 50
     shieldPower: 0
+    moveSpeed: 5
     coolTime: 8
     cost: 20
     amount1: 3
     amount2: 5
     skillPrefab: {fileID: 9081363104629477667, guid: 113647729d783674794dc15a65b43b4a, type: 3}
+    hitEffect: {fileID: 0}

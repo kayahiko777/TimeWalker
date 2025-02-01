@@ -14,4 +14,5 @@ public class SkillData
     public float amount1;
     public float amount2;
     public GameObject skillPrefab;
+    public GameObject hitEffect;
 }

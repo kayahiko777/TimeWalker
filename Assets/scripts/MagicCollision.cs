@@ -30,5 +30,19 @@ public class MagicCollision : MonoBehaviour
         // –‚–@‚ğ”j‰ó
         Destroy(gameObject);
     }
+
+    /// <summary>
+    /// SO‚©‚çUŒ‚—Í‚ğ‚à‚ç‚¤
+    /// </summary>
+    /// <param name="newAttackPower">V‚µ‚¢UŒ‚—Í</param>
+    public void SetUpAttackPower(int newAttackPower)
+    {
+        this.attackPower = newAttackPower;
+    }
+
+    public void SetUpHitEffect(GameObject newhitEffect)
+    {
+        hitEffect = newhitEffect;
+    }
 }
 

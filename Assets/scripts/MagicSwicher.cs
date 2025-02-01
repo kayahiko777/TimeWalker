@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class MagicSwicher : MonoBehaviour
 {
-    [SerializeField]
-    private SkillDataSO skillDataSO;
+    
     //public SkillData[] magicSkills;
     public Text magicNameText;
     public Image magicIconImage;
@@ -32,14 +31,14 @@ public class MagicSwicher : MonoBehaviour
 
     void SwitchMagic(int direction)
     {
-        currentMagicIndex = (currentMagicIndex + direction + skillDataSO.skillDataList.Count)% skillDataSO.skillDataList.Count;
+        currentMagicIndex = (currentMagicIndex + direction + DataBaseManager.instance. skillDataSO.skillDataList.Count)% DataBaseManager.instance.skillDataSO.skillDataList.Count;
 
         UpdateMagicUI();
     }
 
     void UpdateMagicUI()
     {
-        SkillData currentMagic = skillDataSO.skillDataList[currentMagicIndex];
+        SkillData currentMagic = DataBaseManager.instance.skillDataSO.skillDataList[currentMagicIndex];
 
         magicNameText.text = currentMagic.skillName;
         if (magicIconImage != null)
@@ -51,18 +50,24 @@ public class MagicSwicher : MonoBehaviour
 
     public GameObject GetSkillPrefab()
     {
-        SkillData currentMagic = skillDataSO.skillDataList[currentMagicIndex];
+        SkillData currentMagic = DataBaseManager.instance.skillDataSO.skillDataList[currentMagicIndex];
         return currentMagic.skillPrefab;
     }
 
     public float GetMoveSpeed()
     {
-        SkillData currentMagic = skillDataSO.skillDataList[currentMagicIndex];
+        SkillData currentMagic = DataBaseManager.instance.skillDataSO.skillDataList[currentMagicIndex];
         return currentMagic.moveSpeed;
     }
 
     public int GetAttackPower()
     {
-        return skillDataSO.skillDataList[currentMagicIndex].attackPower;
+        return DataBaseManager.instance.skillDataSO.skillDataList[currentMagicIndex].attackPower;
+    }
+
+    public GameObject GetHitEffect()
+    {
+        SkillData currentMagic = DataBaseManager.instance.skillDataSO.skillDataList[currentMagicIndex];
+        return currentMagic.hitEffect;
     }
 }
