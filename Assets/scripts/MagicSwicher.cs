@@ -70,4 +70,10 @@ public class MagicSwicher : MonoBehaviour
         SkillData currentMagic = DataBaseManager.instance.skillDataSO.skillDataList[currentMagicIndex];
         return currentMagic.hitEffect;
     }
+
+    public int GetCost()
+    {
+        SkillData currentMagic = DataBaseManager.instance.skillDataSO.skillDataList[currentMagicIndex];
+        return currentMagic.cost;
+    }
 }

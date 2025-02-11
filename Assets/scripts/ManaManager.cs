@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ManaManager : MonoBehaviour
 {
+    public static ManaManager instance;
+
     private float timer;
     [SerializeField]
     private float manaInterval;
@@ -13,11 +15,27 @@ public class ManaManager : MonoBehaviour
     private int currentMana;
     [SerializeField]
     private int maxMana;
+    [SerializeField]
+    private bool onManaArea;
+    [SerializeField]
+    private float manaHealRate;
 
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
-        
+        manaHealRate = 1.0f;
     }
 
     // Update is called once per frame
@@ -32,7 +50,7 @@ public class ManaManager : MonoBehaviour
             //　目標値を超えている場合計測時間をリセットする
             timer = 0;
             //　マナを指定値分回復する
-            Debug.Log("マナ回復");
+           
             GainMana(manaRecoveryPoint);
         }
     }
@@ -43,8 +61,10 @@ public class ManaManager : MonoBehaviour
     /// <param name="manaPoint"></param>
     public void GainMana(int manaPoint)
     {
+        int healManaPoint = (int)( manaPoint * manaHealRate);
+        Debug.Log($"マナ回復 {healManaPoint}");
         // マナポイントの分だけcurrentManaを加算
-        currentMana += manaPoint;
+        currentMana += healManaPoint;
 
         // currentManaが最大値を超えないように制限する
         currentMana = Mathf.Min(currentMana, maxMana);
@@ -76,5 +96,17 @@ public class ManaManager : MonoBehaviour
         
         return false;
 
+    }
+
+    public void ActivateManaArea(float manarate)
+    {
+        onManaArea = true;
+        manaHealRate = manarate;
+    }
+
+    public void InActivateManaArea()
+    {
+         onManaArea = false;
+        manaHealRate = 1.0f;
     }
 }

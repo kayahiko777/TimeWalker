@@ -35,6 +35,12 @@ public class MagicController : MonoBehaviour
 
     void CastMagic()
     {
+        int cost = magicSwicher.GetCost();
+        bool canCastMagic = ManaManager.instance.ChackManaCost(cost);
+        if (canCastMagic == false)
+        {
+            return;
+        }
         if ( magicSpawnPoint != null)
         {
             //GameObject magic = Instantiate(magicPrefab, magicSpawnPoint.position, magicSpawnPoint.rotation);
@@ -62,6 +68,7 @@ public class MagicController : MonoBehaviour
             }
            // magicCollision.attackPower = attackPower;
            // magicCollision.hitEffect = hitEffect;
+           ManaManager.instance.ConsumeMana(cost);
         }
     }
     
