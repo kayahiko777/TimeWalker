@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class DataBaseManager : MonoBehaviour
@@ -8,6 +9,7 @@ public class DataBaseManager : MonoBehaviour
 
   
     public SkillDataSO skillDataSO;
+    public StageDataSO stageDataSO;
 
     // Start is called before the first frame update
     void Awake()
@@ -23,9 +25,10 @@ public class DataBaseManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+   public GameObject GetStagePrefab()
     {
-        
+        StageData stageData = stageDataSO.stageDataList
+            .FirstOrDefault(data => data.stageNo == UserData.instance.selectStageNo);
+        return stageData.stagePrefab;
     }
 }
